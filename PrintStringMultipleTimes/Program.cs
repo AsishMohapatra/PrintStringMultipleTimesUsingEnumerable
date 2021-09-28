@@ -9,12 +9,15 @@ namespace PrintStringMultipleTimes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Print("Asish", 5));
+            Console.WriteLine(PrintItems<int>.ConcatMultiple(12, 5));
         }
-
-        static string Print(string str, int N)
+    }
+            
+    public class PrintItems<T> where T :  new()
+    {
+        public static string ConcatMultiple(T item, int N)
         {
-            return string.Concat(Enumerable.Repeat(str, N));
+            return string.Concat(Enumerable.Repeat(item.ToString() + " ", N));
         }
     }
 }
